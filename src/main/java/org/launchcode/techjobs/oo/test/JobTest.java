@@ -66,7 +66,7 @@ public class JobTest {
                 new CoreCompetency("Leader")
         );
 
-        assertNotEquals(job1, job2);
+        assertFalse(job1.equals(job2));
 
     }
 
