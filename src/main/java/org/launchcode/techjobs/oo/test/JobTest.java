@@ -84,12 +84,10 @@ public class JobTest {
 
         String toStringReturnValue = job.toString();
         char firstChar = toStringReturnValue.charAt(0);
-        String firstCharStringType = String.valueOf(firstChar);
         char lastChar = toStringReturnValue.charAt(toStringReturnValue.length() - 1);
-        String lastCharStringType = String.valueOf(lastChar);
 
-        assertEquals('\n', firstCharStringType);
-        Assert.assertEquals('\n',lastCharStringType);
+        Assert.assertEquals('\n', firstChar);
+        Assert.assertEquals('\n', lastChar);
 
     }
 
