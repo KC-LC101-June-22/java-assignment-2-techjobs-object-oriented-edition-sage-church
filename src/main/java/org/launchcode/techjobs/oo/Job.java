@@ -1,6 +1,7 @@
 package org.launchcode.techjobs.oo;
 
 import javax.swing.text.Position;
+import java.util.ArrayList;
 import java.util.Objects;
 
 public class Job {
@@ -33,10 +34,6 @@ public class Job {
         this.positionType = positionType;
         this.coreCompetency = coreCompetency;
     }
-
-    // TODO: Add custom equals and hashCode methods. Consider two Job objects "equal" when their id fields
-    //  match.
-
 
     @Override
     public boolean equals(Object o) {
@@ -94,4 +91,32 @@ public class Job {
     public void setCoreCompetency(CoreCompetency coreCompetency) {
         this.coreCompetency = coreCompetency;
     }
+
+    @Override
+    public String toString() {
+
+
+        String employer = this.employer.getValue();
+        String location = this.location.getValue();
+        String positionType = this.positionType.getValue();
+        String coreCompetency = this.coreCompetency.getValue();
+
+        if (employer.equals("")) {
+            employer = "Data not available";
+        }
+        if (location.equals("")) {
+            location = "Data not available";
+        }
+        if (positionType.equals("")) {
+            positionType = "Data not available";
+        }
+        if (coreCompetency.equals("")) {
+            coreCompetency = "Data not available";
+        }
+
+        return "\n" + "ID: " + id + "\n" + "Name: " + name + "\n" + "Employer: " + employer + "\n" + "Location: " +
+                location + "\n" + "Position Type: " + positionType + "\n" + "Core Competency: " + coreCompetency + "\n";
+
+    }
+
 }

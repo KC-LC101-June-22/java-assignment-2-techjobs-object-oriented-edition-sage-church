@@ -1,5 +1,6 @@
 package org.launchcode.techjobs.oo.test;
 
+import org.junit.Assert;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.junit.runners.JUnit4;
@@ -52,22 +53,78 @@ public class JobTest {
 
         Job job1 = new Job(
                 "Basketball Coach",
-                new Employer("UMKC"),
-                new Location("Kansas City"),
+                new Employer("UM"),
+                new Location("Moscow"),
                 new PositionType("Coach"),
-                new CoreCompetency("Leader")
+                new CoreCompetency("Thick skin")
         );
 
         Job job2 = new Job(
                 "Basketball Coach",
-                new Employer("UMKC"),
-                new Location("Kansas City"),
+                new Employer("UM"),
+                new Location("Moscow"),
                 new PositionType("Coach"),
-                new CoreCompetency("Leader")
+                new CoreCompetency("Thick skin")
         );
 
         assertFalse(job1.equals(job2));
 
+    }
+
+    @Test
+    public void testToStringStartsAndEndsWithNewLine() {
+
+        Job job = new Job(
+                "Basketball Coach",
+                new Employer("UM"),
+                new Location("Moscow"),
+                new PositionType("Coach"),
+                new CoreCompetency("Thick skin")
+        );
+
+        String toStringReturnValue = job.toString();
+        char firstChar = toStringReturnValue.charAt(0);
+        String firstCharStringType = String.valueOf(firstChar);
+        char lastChar = toStringReturnValue.charAt(toStringReturnValue.length() - 1);
+        String lastCharStringType = String.valueOf(lastChar);
+
+        assertEquals('\n', firstCharStringType);
+        Assert.assertEquals('\n',lastCharStringType);
+
+    }
+
+    @Test
+    public void testToStringContainsCorrectLabelsAndData() {
+
+        Job job = new Job(
+                "Basketball Coach",
+                new Employer("UM"),
+                new Location("Moscow"),
+                new PositionType("Coach"),
+                new CoreCompetency("Thick skin")
+        );
+
+        String properString = "\nID: " + job.getId() + "\nName: Basketball Coach\nEmployer: UM\nLocation: Moscow\nPosition Type: Coach" +
+                "\nCore Competency: Thick skin\n";
+
+        assertEquals(properString, job.toString());
+    }
+
+    @Test
+    public void testToStringHandlesEmptyField() {
+
+        Job job = new Job(
+                "Basketball Coach",
+                new Employer("UM"),
+                new Location("Moscow"),
+                new PositionType(""),
+                new CoreCompetency("Thick skin")
+        );
+
+        String properString = "\nID: " + job.getId() + "\nName: Basketball Coach\nEmployer: UM\nLocation: Moscow\nPosition Type: Data not available" +
+                "\nCore Competency: Thick skin\n";
+
+        assertEquals(properString, job.toString());
     }
 
 }

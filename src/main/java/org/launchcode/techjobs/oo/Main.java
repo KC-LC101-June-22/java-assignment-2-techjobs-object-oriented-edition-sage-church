@@ -17,6 +17,16 @@ public class Main {
 //        for (Job job : jobs){
 //            System.out.println(job);
 //        }
+
+        Job job = new Job(
+                "Basketball Coach",
+                new Employer(""),
+                new Location("Kansas City"),
+                new PositionType("Coach"),
+                new CoreCompetency("Leader")
+        );
+
+        System.out.println(job);
     }
 
 }
